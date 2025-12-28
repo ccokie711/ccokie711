@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Contact - Personal Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="contact-background">
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="javascript:void(0);" class="logout-button" 
+onclick="confirmLogout()">LOG OUT</a>
+</ul></nav>
+<section id="section2"></section>
+<section id="contact">
+<div class="contact-content">
+<!-- Contact Form -->
+<form id="contactForm" class="contact-form">
+<h2>Let's Get in Touch</h2>
+<label for="name">Your Name:</label>
+<input type="text" id="name" name="name" placeholder="Your 
+Name">
+<span class="error" id="nameError"></span>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" 
+placeholder="Your Email">
+<span class="error" id="emailError"></span>
+<label for="message">Message:</label>
+<textarea id="message" name="message" placeholder="Your 
+Message"></textarea>
+<span class="error" id="messageError"></span>
+<button type="submit"><strong>SEND MESSAGE</strong> 
+</button></form>
+<!-- New Container for Contact Details -->
+<div class="contact-details">
+<h3><center>Contact Me</center></h3>
+<p><strong>Email Address:</strong> <br> 
+Christian@gmail.com</p>
+<hr width="75%" size="1" color="Orange" align="left">
+<p><strong>Phone Number:</strong> <br>09705094063</p>
+<hr width="75%" size="1" color="Orange" align="left">
+<p><strong>Address:</strong> <br> Antique, Philippines</p>
+</div></div>
+</section>
+<footer><p>&copy; 2024 Your Name. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+<!-- Embedded JavaScript -->
+<script>
+    // Ensure this script runs after the DOM is ready if placed in the <head>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const form = document.querySelector("#contactForm");
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const messageInput = document.querySelector("#message");
+
+        // Add an event listener to the form
+        if (form) {
+            form.addEventListener("submit", function(event) {
+                let isValid = true;
+
+                // Clear all previous error messages
+                document.querySelectorAll(".error").forEach(function(errorElement) {
+                    errorElement.textContent = "";
+                });
+
+                // Validate Name
+                if (nameInput.value.trim() === "") {
+                    // Assumes you have an element with id="nameError" in your HTML
+                    const nameError = document.getElementById('nameError');
+                    if (nameError) nameError.textContent = "Name is required";
+                    isValid = false;
+                }
+
+                // Validate Email
+                if (emailInput.value.trim() === "") {
+                    // Assumes you have an element with id="emailError"
+                    const emailError = document.getElementById('emailError');
+                    if (emailError) emailError.textContent = "Email is required";
+                    isValid = false;
+                } else if (!validateEmail(emailInput.value)) {
+                    // Assumes you have an element with id="emailError"
+                    const emailError = document.getElementById('emailError');
+                    if (emailError) emailError.textContent = "Please enter a valid email";
+                    isValid = false;
+                }
+
+                // Validate Message
+                if (messageInput.value.trim() === "") {
+                    // Assumes you have an element with id="messageError"
+                    const messageError = document.getElementById('messageError');
+                    if (messageError) messageError.textContent = "Message is required";
+                    isValid = false;
+                }
+
+                // Prevent form submission if there are validation errors
+                if (!isValid) {
+                    event.preventDefault();
+                    // Optional: show a general alert for failure if error elements aren't visible
+                    // alert("Please correct the errors in the form."); 
+                } else {
+                    // If all validation passes, run the submission simulation from the second script:
+                    event.preventDefault(); // Prevent actual form submission for this simulation
+
+                    alert("Your message has been sent successfully!");
+
+                    // Clear form fields after simulated submission
+                    form.reset();
+                }
+            });
+        }
+    });
+
+    // Function to validate email format (kept globally accessible for simplicity)
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+</script> 
+<script>
+// Logout function with confirmation
+function confirmLogout() {
+if (confirm("Are you sure you want to log out?")) {
+	// Add your logout logic here.
+	// For ecample, redirect the user to the login page:
+window.location.href = 'file:///storage/emulated/0/HOMEPAGES/login.html';
+} else {
+// If the user cancels, do nothing
+return; }}
+</script>

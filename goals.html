@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>My Goals as a Student</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Welcome to My Personal Website</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li class="dropdown">
+<a href="#" class="dropbtn">ABOUT</a>
+<div class="dropdown-content">
+<a href="skills.html">Skills I'm Developing</a>
+<a href="goals.html">My Goals as a Student</a>
+<a href="funfacts.html">Fun Facts About Me</a>
+</div>
+</li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<a href="javascript:void(0);" class="logout-button" 
+onclick="confirmLogout()">LOG OUT</a>
+</ul>
+</nav>
+<section id="section2"></section>
+<section id="drop">
+<h2>My Goals as a Student</h2>
+<p style="text-align: center;"> </p>
+<div class="goal-grid">
+<div class="goal-card" onclick="toggleGoalDetails(1)">
+<div class="goal-header" style="background-color: 
+#6a1b9a;">
+	
+	<strong>Maintain an "A" in every class</strong></div>
+<p><strong> </strong></p>
+<div class="goal-details" id="goal1-details">
+	Instead of focusing solely on the final GPA, concentrate on earning an "A" on every assignment, test, and project throughout the semester.<p> </p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(1)">
+<div class="goal-header" style="background-color: 
+#0288d1;">
+	
+	<strong>Master active learning techniques</strong></div>
+<p> </p>
+<div class="goal-details" id="goal2-details">
+<p>Go beyond passive reading and embrace proven study strategies to retain and apply information more effectively.</p></p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(2)">
+<div class="goal-header" style="background-color: 
+#ffb300;">
+	
+	<strong>Prioritize physical and mental health</strong></div>
+<p> </p>
+<div class="goal-details" id="goal3-details">
+<p> Sustainable academic performance requires taking care of your body and mind. High-achieving students recognize that neglecting their health leads to burnout and affects their grades</p>
+</div>
+</div>
+<div class="goal-card" onclick="toggleGoalDetails(2)">
+<div class="goal-header" style="background-color: 
+#e53935;">
+	
+	<strong>Practice tests</strong></div>
+<p> </p>
+<div class="goal-details" id="goal4-details">
+<p>Work through practice questions or past exams to familiarize yourself with the format and types of questions. For technical courses like math, practice problems are more important than just re-reading the text</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<footer>
+<p>&copy; 2024 Your Name. All rights reserved.</p>
+</footer>
+<div class="footer-divider"></div> <!-- Orange line -->
+<!-- Embedded JavaScript -->
+<script>
+// Function to toggle details for both cards in a row
+function toggleGoalDetails(group) {
+const details1 = document.getElementById('goal' + (group * 2 -
+1) + '-details');
+const details2 = document.getElementById('goal' + (group * 2)
++ '-details');
+// Toggle visibility for the paired goals
+details1.classList.toggle('active');
+details2.classList.toggle('active');
+}
+</script>
+<script>
+// Logout function with confirmation
+function confirmLogout() {
+if (confirm("Are you sure you want to log out?")) {
+	// Add your logout logic here.
+	// For ecample, redirect the user to the login page:
+window.location.href = 'file:///storage/emulated/0/HOMEPAGES/login.html';
+} else {
+// If the user cancels, do nothing
+return; }}
+</script>
+</body>
+</html>
